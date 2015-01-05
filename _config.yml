@@ -1,0 +1,15 @@
+markdown:         redcarpet
+highlighter:      pygments
+permalink:        pretty
+title:            Geequ
+tagline:          'PHP programming, OOP desgin, DDD, TDD'
+description:      'Geequ - PHP programming, OOP desgin, DDD, TDD'
+url:              http://geequ.github.io
+author:
+  name:           'Geequ'
+  url:            https://twitter.com/geequ
+paginate:         5
+version:          1.0.0
+github:
+  repo:           https://github.com/geequ/geequ.github.io
+  profile:        https://github.com/geequ
