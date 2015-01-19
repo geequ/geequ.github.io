@@ -5,35 +5,32 @@ categories: oop designpattern
 ---
 
 ### Description
-Observer as a operating design pattern assume that one object (subject) has at least one observer. If subject change his state all of his aggregates observers take a notification.
-This pattern is a one of possibility to decouple dependencies between class/modules/bundles etc. We can use this as a event handler system or MVC application architecture (where M layer is a subject and V is an observer).
+Observer as an operating design pattern assumes that one object (subject) has at least one observer. If subject changes his state, all of his aggregated observers take a notification.
+This pattern is one of possibilities to decouple dependencies between class/modules/bundles etc. We can use this as an event handler system or MVC application architecture (where M layer is a subject and V is an observer).
 
 ### Class diagram
 <center>
 ![Class diagram observer pattern](http://googledrive.com/host/0B7zLbvESXLZlclJiMW5HMTMyYVk/observer_pattern.png)
 </center>
 
-### When to use?
-+ If change in one object require change another object and you don't know how many objects should change their state.
-+ If your abstraction has 2 aspects and once depends on another. If you encapsulate this aspects in the separate objects you have possibility to change and reuse independent each other.
+### When use?
++ If a change in one object requires another object change and you don't know how many objects should change their state.
++ If your abstraction has 2 aspects and one depends on another. If you encapsulate these aspects in the separate objects, you have possibility to change and reuse each other independently.
 
-As I wrote in description this pattern is used in MVC. This solution is very elegant, because M layer may be exists whith any knowledge about V layer. View has observer role, so if in model layer was changed anything then model notify view that something was change. Now from View decision depends if this change has shown to for example end user.
-As you see this is good way and one of possibilities to inverse control and loose dependencies.
+As I wrote in description this pattern is used in MVC. This solution is very elegant, because M layer may exist whithout any knowledge about V layer. View has an observer role, so if there is a change in model layer then model notifies View that something was changed. It's up to the View decision whether this change will be shown to end user. As you see this is a good way and one of the possibilities to inverse control and loose dependencies.
 
 ### How to use?
-In php we have embedded interfaces such as [SplObserver](http://php.net/manual/en/class.splobserver.php) and [SplSubject](http://php.net/manual/en/class.splsubject.php) which are a part of Standard PHP Library. For our example this interfaces are enough, but in my modest opinion sometimes they could bring some troubles (i.e. when we want expand origin SplObserver interface for add aspects/conditions).
+In php we have interfaces which are embedded such as [SplObserver](http://php.net/manual/en/class.splobserver.php) and [SplSubject](http://php.net/manual/en/class.splsubject.php) which are a part of Standard PHP Library. For our example these interfaces are enough, but in my modest opinion sometimes they could bring some troubles (i.e. when we want to expand the original SplObserver interface for add aspects/conditions).
 
-I want to show you an example application whose goal is change exchange state when currency rate reach expected level, for example: We defined an exchange with 3.5 rate for USD currency. When selling rate reach two rates 3.45 and 3.55 we should change state this exchange (for our need we simplifing example).
+I want to show you an example application which goal is to change the exchange state when currency rate reaches  an expected level, for example: We assume that we have an exchange with 3.5 rate for USD currency. When selling rate reaches required level, we should change the state of this exchange (for our need we simplify example).
 
 <center>
 ![Currency rate chart](http://googledrive.com/host/0B7zLbvESXLZlclJiMW5HMTMyYVk/rate_chart.png)
 </center>
 
-Lets begin from rate deliver class which has a subject role and next I show you Exchange class with RateObserver interface.
+Lets begin with the rate deliver class which has a subject role and next I'll show you Exchange class with RateObserver interface.
 
 {% highlight php %}
-
-<?php
 
 <?php
 
@@ -197,8 +194,8 @@ print(sprintf("Current exchange state:\t%s\n", $exchangeState));
 {% endhighlight %} 
 
 ### Summary
-What about pros and coins? I guess that Observer Pattern is very useful tool for loosing coupling between different aspects/parts of application.
-As you see Exchange class can be exists without any knowledge about RateDelivery. Additionally we can add another class with RateObserver interface, for example
+What about pros and coins? I guess that Observer Pattern is very useful tool for loosing coupling between different aspects/parts of an application.
+As you see Exchange class can exist without any knowledge about RateDelivery. Additionally, we can add another class with RateObserver interface, for example
 we have to implement SMS notification:
 
 {% highlight php %}
@@ -215,6 +212,6 @@ $rateDelivery->attach($smsNotifier);
 
 {% endhighlight %} 
 
-This pattern is good example of one of SOLID rule (Open/Close principle). 
+This pattern is a good example of one of SOLID rules (Open/Closed principle). 
 
-In other hand we have disadvanteges and for me the biggest problem with this pattern is significant impediment debug process.
+On the other hand, we have some disadvanteges and for me the biggest one is a significant impediment debug process.
