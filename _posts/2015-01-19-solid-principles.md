@@ -20,5 +20,4 @@ And we have also five principles comes from acronym SOLID:
 2. **O**pen/Closed Principle
 3. **L**iskov Substitotion Principle
 4. **I**nterface Segregation Principle
-5. **D**ependency Inversion Principle 
-
+5. **D**ependency Inversion Principle

@@ -61,7 +61,7 @@ class RateDelivery implements \SplSubject
      */
     public function attach(SplObserver $observer)
     {
-        if(in_array('RateObserver', class_implements($observer))) {
+        if($observer instanceof RateObserver) {
             $this->observers[] = $observer;
             return;
         }
@@ -194,7 +194,7 @@ print(sprintf("Current exchange state:\t%s\n", $exchangeState));
 {% endhighlight %} 
 
 ### Summary
-What about pros and coins? I guess that Observer Pattern is very useful tool for loosing coupling between different aspects/parts of an application.
+What about pros and cons? I guess that Observer Pattern is very useful tool for loosing coupling between different aspects/parts of an application.
 As you see Exchange class can exist without any knowledge about RateDelivery. Additionally, we can add another class with RateObserver interface, for example
 we have to implement SMS notification:
 
