@@ -52,7 +52,7 @@ Our implementation does what it should do. We have two conditions to check what 
 
 So, what should we do?
 
-When you see mechanisms of type verification such as the example above, you  know that you have broken LSP. And in the next consequence you have probably broken OCP. At first, let's begin with creating another implementantion for every kind of document and let's assume that `Document` class is a parent for everyone (attention! Inheritance isn't a tool for storing common code. We should use this approach when it's natural. If you want to avoid duplicating, you should use a [template method pattern](http://en.wikipedia.org/wiki/Template_method_pattern)):
+When you see mechanisms of type verification such as the example above, you  know that you have broken LSP. And in the next consequence you have probably broken [OCP](http://geequ.github.io/oop/solid/2015/01/26/open-closed-principle/). At first, let's begin with creating another implementantion for every kind of document and let's assume that `Document` class is a parent for everyone (attention! Inheritance isn't a tool for storing common code. We should use this approach when it's natural. If you want to avoid duplicating, you should use a [template method pattern](http://en.wikipedia.org/wiki/Template_method_pattern)):
 
 {% highlight php %}
 
@@ -63,16 +63,16 @@ interface DocumentCorrectable
 	public function makeCorrection($args);
 }
 
-abstract class Document implements DocumentCorrectable
+abstract class AbstractDocument implements CorrectableDocument
 {}
 
-class Receipt extends Document
+class Receipt extends Document implements CorrectableDocument
 {}
 
-class Invoice extends Document
+class Invoice extends Document implements CorrectableDocument
 {}
 
-class ProformaInvoice extends Document
+class ProformaInvoice extends Document implements CorrectableDocument
 {}
 
 {% endhighlight %}
@@ -95,4 +95,4 @@ foreach($documentsArr as $document) {
 
 As you see we have now common interface to make corrections. Moreover, in this case our implementation is flexible, safe and clear for clients and open to extension.
 
-In the above example we see specific design approach and it's *design by contract*. LSP is a powerful tool to support this way of designing of our applications. While open closed principle is one of fundamental OOP design rule, Liskov Substitution Principle is one of OCP conditions. LSP gives us possibilities to extend our modules without changing them directly.
+In the above example we see specific design approach and it's *design by contract*. LSP is a powerful tool to support this way of designing of our applications. While open closed principle is one of fundamental OOP design rule, Liskov Substitution Principle is one of [OCP](http://geequ.github.io/oop/solid/2015/01/26/open-closed-principle/) conditions. LSP gives us possibilities to extend our modules without changing them directly.
