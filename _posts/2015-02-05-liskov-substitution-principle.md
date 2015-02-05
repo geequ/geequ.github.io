@@ -58,7 +58,7 @@ When you see mechanisms of type verification such as the example above, you  kno
 
 <?php
 
-interface DocumentCorrectable
+interface CorrectableDocument
 {
 	public function makeCorrection($args);
 }
