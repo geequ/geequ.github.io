@@ -30,6 +30,8 @@ I want to show you an example application which goal is to change the exchange s
 
 Lets begin with the rate deliver class which has a subject role and next I'll show you Exchange class with RateObserver interface.
 
+{% gist 0f3e92842b9c962b4ace %}
+
 {% highlight php %}
 
 <?php
