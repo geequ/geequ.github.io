@@ -4,7 +4,7 @@ title: Open Closed Principle
 categories: oop solid
 ---
 
-Recently I wrote a short note about [SRP](http://geequ.github.io/oop/solid/2015/01/21/single-responsibility-principle/ "single responsibility principle") and I ended with a principle i.e. Open Closed Principle (OCP).
+Recently I have written a short note about [SRP](http://geequ.github.io/oop/solid/2015/01/21/single-responsibility-principle/ "single responsibility principle") and I have ended with a principle i.e. Open Closed Principle (OCP).
 
 In general, we should use this principle when we suspect that something will probably be changed or when we see that some changes make the necessity of modification of bigger part of the code than we expected before.
 
