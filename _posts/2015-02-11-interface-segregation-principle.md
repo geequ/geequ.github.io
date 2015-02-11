@@ -18,7 +18,7 @@ As you cetainly notice, in this example we have one interface `MessangerUI` whic
 
 Now, let's imagine that we must implement **another** way to send message, for example `LetterMessanger`. In this case we have to add **another** method such as `requestLetterAmount()`. However, classes `SmsMessanger`, `EmailMessanger`, `CarrierPigeonMessanger` are connected (by `MessangerUI` interface) and they also must be rebuild. 
 
-So, as I remember I want to add only one additional way, but something went wrong. This *something* is too thick `MessangerUI` interface. This interface has too much responsibility and some methods are absolutely not linked with current implementations! Why `SmsMessanger` has knowledge about another methods to sending? Our code is very sad.
+So, as I remember I want to add only one additional way, but something went wrong. This *something* is too thick `MessangerUI` interface. This interface has too much responsibility and some methods are absolutely not linked with current implementations! Why `SmsMessanger` has knowledge about another methods used to sending? Our code is very sad.
 
 To avoid situation like above we should create thin and cohesive interfaces. Let's try to correct our situation:
 
