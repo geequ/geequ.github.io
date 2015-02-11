@@ -26,7 +26,7 @@ To avoid situation like above we should create thin and cohesive interfaces. Let
 
 Now `MessangerUI` interface has been splitted to 3 small and thin interfaces `SmsMessangerUI`, `EmailMessangerUI`, `CarrierPigeonMessangerUI`, but our client `SOAPMessangerUI` still use common interface `MessangerUI`. The result of this changes is reduction of coupling between messanger implementations.
 
-Interface segregation principle say us that interface should be specific for one client. The less responsibility of interfaces, the more ease to manage our classes. To adapt our code to our needs can use aggregation, composition, adapters or delegations. They are very powerful tool to control our code and mess in it.
+Interface segregation principle say us that interface should be specific for one client. The less responsibility of interfaces, the more ease to manage our classes. To adapt our code to our needs we can use aggregation, composition, adapters or delegations. They are very powerful tool to control our code and mess in it.
 
 
 
