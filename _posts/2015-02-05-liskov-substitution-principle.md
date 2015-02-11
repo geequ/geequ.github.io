@@ -20,6 +20,10 @@ When you see mechanisms of type verification such as the example above, you  kno
 
 {% gist e89de72accf4de577a07 %}
 
+Now let's look how to use this approach:
+
+{% gist 94b2b4509c714d881284 %}
+
 As you see we have now common interface to make corrections. Moreover, in this case our implementation is flexible, safe and clear for clients and open to extension.
 
 In the above example we see specific design approach and it's *design by contract*. LSP is a powerful tool to support this way of designing of our applications. While open closed principle is one of fundamental OOP design rule, Liskov Substitution Principle is one of [OCP](http://geequ.github.io/oop/solid/2015/01/26/open-closed-principle/) conditions. LSP gives us possibilities to extend our modules without changing them directly.
